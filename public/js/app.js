@@ -9,7 +9,7 @@ angular
   .module('chatApp', [
     // 'ngCookies',
     // 'ngRoute',
-    'ui.router',
+    // 'ui.router',
     // 'appRoutes',
     // 'ngSanitize',
     // 'ngStorage',
@@ -19,19 +19,19 @@ angular
     'NerdService',
     'GeekCtrl',
     'GeekService'
-  ])
+  ]);
 
-.config(function($stateProvider, $urlRouterProvider) {
-
-  $urlRouterProvider.otherwise('/');
-
-  $stateProvider
-
-      // HOME STATES AND NESTED VIEWS ========================================
-      .state('home', {
-    		url: '/',
-    		templateUrl: 'views/home.html',
-        controller: 'MainController'
-    	});
-
-});
+// .config(function($stateProvider, $urlRouterProvider) {
+//
+//   $urlRouterProvider.otherwise('/');
+//
+//   $stateProvider
+//
+//       // HOME STATES AND NESTED VIEWS ========================================
+//       .state('home', {
+//     		url: '/',
+//     		templateUrl: 'views/home.html',
+//         controller: 'MainController'
+//     	});
+//
+// });
