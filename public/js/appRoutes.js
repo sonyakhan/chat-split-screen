@@ -42,3 +42,20 @@ angular.module('appRoutes',[]).config(function ($routeProvider, $locationProvide
 			redirectTo: '/'
 		});
 });
+
+
+// angular.module('appRoutes',[]).config(function ($stateProvider, $urlRouteProvider) {
+//
+// 	$urlRouteProvider.otherwise('/');
+//
+// 	$stateProvider
+//
+// 	// home states and nested views
+// 	.state('home'. {
+// 		url: '/home',
+// 		templateUrl: 'views/home.html'
+// 	});
+// 
+//
+//
+// });
