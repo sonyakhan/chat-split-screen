@@ -16,13 +16,11 @@
 	<script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
 
 	<!-- ANGULAR CUSTOM -->
-	<script src="js/controllers/MainCtrl.js"></script>
-	<script src="js/controllers/NerdCtrl.js"></script>
-	<script src="js/services/NerdService.js"></script>
-	<script src="js/controllers/GeekCtrl.js"></script>
-	<script src="js/services/GeekService.js"></script>
-	<!-- <script src="js/appRoutes.js"></script> -->
 	<script src="js/app.js"></script>
+	<script src="js/controllers/LeftCtrl.js"></script>
+	<script src="js/controllers/RightCtrl.js"></script>
+	<script src="js/services/SocketService.js"></script>
+	<!-- <script src="js/appRoutes.js"></script> -->
 </head>
 <body ng-app="chatApp">
 <div class="container">
@@ -44,9 +42,9 @@
 	<div class="row">
 
 		<div class="col-md-6">
-			<div ng-controller="MainController as main">
-				{{ main.tagline }}
-				{{ main.hi }}
+			<div ng-controller="LeftCtrl as left">
+				{{ left.tagline }}
+				{{ left.hi }}
 
 				<div class='well chatbox' id='chat_history'>
 					<ul class='list-unstyled'>
@@ -76,9 +74,9 @@
 
 
 		<div class="col-md-6">
-			<div ng-controller="GeekController as geek">
-				{{ geek.tagline }}
-				{{ geek.hi }}
+			<div ng-controller="RightCtrl as right">
+				{{ right.tagline }}
+				{{ right.hi }}
 
 				<div class='well chatbox' id='chat_history'>
 					<ul class='list-unstyled'>

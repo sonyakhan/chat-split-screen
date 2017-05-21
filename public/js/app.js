@@ -14,11 +14,8 @@ angular
     // 'ngSanitize',
     // 'ngStorage',
     // 'ngLodash',
-    'MainCtrl',
-    'NerdCtrl',
-    'NerdService',
-    'GeekCtrl',
-    'GeekService'
+    // 'LeftCtrl',
+    // 'RightCtrl'
   ]);
 
 // .config(function($stateProvider, $urlRouterProvider) {

@@ -44,18 +44,18 @@
 // });
 
 
-angular.module('appRoutes',['ui.router']).config(function ($stateProvider, $urlRouteProvider) {
-
-	$urlRouteProvider.otherwise('/');
-
-	$stateProvider
-
-	// home states and nested views
-	.state('home', {
-		url: '/',
-		templateUrl: 'views/home.html'
-	});
-
-
-
-});
+// angular.module('appRoutes',['ui.router']).config(function ($stateProvider, $urlRouteProvider) {
+//
+// 	$urlRouteProvider.otherwise('/');
+//
+// 	$stateProvider
+//
+// 	// home states and nested views
+// 	.state('home', {
+// 		url: '/',
+// 		templateUrl: 'views/home.html'
+// 	});
+//
+//
+//
+// });
