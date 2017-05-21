@@ -9,7 +9,9 @@
 
   function RightCtrl($location, $scope, $localStorage, socket) {
 
-    $scope.test = 'Right Ctlr works!!!';
+    // vm = "view model"
+    var vm = this;
+    vm.test = 'Right Ctlr works!!!';
 
 
 

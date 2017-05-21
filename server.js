@@ -8,7 +8,7 @@ var users = [];
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+// handle socket connections on backend
 io.on('connection', function(socket){
   console.log('a user connected');
 

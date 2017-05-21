@@ -9,7 +9,9 @@
 
   function LeftCtrl($scope, $localStorage, socket, lodash) {
 
-      $scope.test = 'Left Ctlr works!!!';
+    // vm = "view model"
+    var vm = this;
+    vm.test = 'Left Ctlr works!!!';
 
 
   }
