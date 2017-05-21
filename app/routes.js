@@ -1,5 +1,7 @@
 module.exports = function(app) {
 
+	'use strict';
+
 	// server routes ===========================================================
 	// handle things like api calls
 	// authentication routes

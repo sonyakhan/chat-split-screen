@@ -1,18 +1,41 @@
 (function() {
   'use strict';
 
-  // declare the socket factory to use in the left + right controllers
   angular
-    .module('chatApp')
+    .module('app')
     .factory('socket', socket);
 
   socket.$inject = ['$rootScope'];
 
   function socket($rootScope) {
+      var socket = io.connect();
 
-    var socketObj = {};
+      var socketObj = {
+        on: on,
+        emit: emit
+      };
 
-    return socketObj;
+      return socketObj;
+      
+      function on(eventName, callback) {
+        socket.on(eventName, function() {
+          var args = arguments;
+          $rootScope.$apply(function() {
+            callback.apply(socket, args);
+          });
+        });
+      }
+
+      function emit(eventName, data, callback) {
+        socket.emit(eventName, data, function() {
+          var args = arguments;
+          $rootScope.$apply(function() {
+            if (callback) {
+              callback.apply(socket, args);
+            }
+          });
+        });
+      }
 
   }
 })();

@@ -1,31 +1,17 @@
-// angular.module('RightCtrl', []).controller('RightCtrl', function($scope) {
-//
-// 	this.tagline = 'The square root of life is pi!';
-//
-// 	this.hi = 'hello from the Right Controller~';
-//
-// });
-
-
 (function() {
   'use strict';
 
-  // declare the right controller
   angular
-    .module('chatApp')
+    .module('app')
     .controller('RightCtrl', RightCtrl);
 
-  RightCtrl.$inject = ['$scope', 'socket'];
+  RightCtrl.$inject = ['$location', '$scope', '$localStorage', 'socket'];
 
-  function RightCtrl($scope, socket) {
+  function RightCtrl($location, $scope, $localStorage, socket) {
 
-		// rvm means "right view model"
-		var rvm = this;
+    $scope.test = 'Right Ctlr works!!!';
 
-		rvm.tagline = 'To the moon and back!';
 
-		rvm.hi = 'hey this is coming from the Right Controller';
 
   }
-
 })();
