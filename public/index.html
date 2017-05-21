@@ -28,7 +28,7 @@
 <div class="container">
 
 	<!-- HEADER -->
-	<nav class="navbar navbar-inverse">
+	<!-- <nav class="navbar navbar-inverse">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="/">Stencil: Node and Angular</a>
 		</div>
@@ -36,20 +36,83 @@
 			<li><a href="/nerds">Nerds</a></li>
 			<li><a href="/geeks">Geeks</a></li>
 		</ul>
-	</nav>
+	</nav> -->
 
 	<!-- ANGULAR DYNAMIC CONTENT -->
 	<!-- <div ui-view></div> -->
 
-	<div ng-controller="MainController">
-		{{ tagline }}
-		{{ hi }}
+	<div class="row">
+
+		<div class="col-md-6">
+			<div ng-controller="MainController as main">
+				{{ main.tagline }}
+				{{ main.hi }}
+
+				<div class='well chatbox' id='chat_history'>
+					<ul class='list-unstyled'>
+						<li ng-repeat='m in messages'>
+							<i class='fa fa-comment'></i>
+							&nbsp;
+							<b>{{m.from}} </b>:
+							&nbsp;
+							{{m.message}}
+						</li>
+					</ul>
+				</div>
+				<br>
+				<form ng-submit='sendMessage()'>
+			      <div class='input-group'>
+			        <input class='input-sm form-control' ng-model='message' type='text' placeholder="Type a message...">
+			        <span class='input-group-btn'>
+			          <input class='input-sm btn btn-default'
+			          type='submit'
+			          value='Send'>
+			        </span>
+			      </div>
+			    </form>
+
+			</div>
+		</div>
+
+
+		<div class="col-md-6">
+			<div ng-controller="GeekController as geek">
+				{{ geek.tagline }}
+				{{ geek.hi }}
+
+				<div class='well chatbox' id='chat_history'>
+					<ul class='list-unstyled'>
+						<li ng-repeat='m in messages'>
+							<i class='fa fa-comment'></i>
+							&nbsp;
+							<b>{{m.from}} </b>:
+							&nbsp;
+							{{m.message}}
+						</li>
+					</ul>
+				</div>
+				<br>
+				<form ng-submit='sendMessage()'>
+			      <div class='input-group'>
+			        <input class='input-sm form-control' ng-model='message' type='text' placeholder="Type a message...">
+			        <span class='input-group-btn'>
+			          <input class='input-sm btn btn-default'
+			          type='submit'
+			          value='Send'>
+			        </span>
+			      </div>
+			    </form>
+
+			</div>
+		</div>
+
 	</div>
 
-	<div ng-controller="GeekController">
-		{{ tagline }}
-		{{ hi }}
-	</div>
+
+
+
+
+
 
 </div>
 </body>
