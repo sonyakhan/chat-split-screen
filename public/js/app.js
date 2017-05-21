@@ -8,8 +8,9 @@
 angular
   .module('chatApp', [
     // 'ngCookies',
-    'ngRoute',
-    'appRoutes',
+    // 'ngRoute',
+    'ui.router',
+    // 'appRoutes',
     // 'ngSanitize',
     // 'ngStorage',
     // 'ngLodash',
@@ -18,4 +19,19 @@ angular
     'NerdService',
     'GeekCtrl',
     'GeekService'
-  ]);
+  ])
+
+.config(function($stateProvider, $urlRouterProvider) {
+
+  $urlRouterProvider.otherwise('/');
+
+  $stateProvider
+
+      // HOME STATES AND NESTED VIEWS ========================================
+      .state('home', {
+    		url: '/',
+    		templateUrl: 'views/home.html',
+        controller: 'MainController'
+    	});
+
+});
