@@ -1,19 +1,78 @@
-<div ng-controller="LeftCtrl as l">
-  {{ l.test }}
-</div>
-
-
-<div ng-controller="RightCtrl as r">
-  {{ r.test }}
-</div>
-
-
-
 <div class="row">
+  <div class="col-xs-12 col-md-6 left-chat" ng-controller="LeftCtrl">
+    <div class="left-menu text-center">
+      <div class="other-name">
+        <b>Rob</b>
+      </div>
+    </div>
+
+    <ul class='messages'>
+      <li ng-class="{ 'sent' : m.from == name, 'received' : m.from != name }" ng-repeat='m in messages'>
+
+        <b>{{ m.from }} </b>:
+        &nbsp;
+        {{ m.message }}
+
+
+      </li>
+    </ul>
+
+
+    <div class="bottom-bar">
+      <form ng-submit="sendMessageLeft()">
+        <div class="form-group label-floating">
+          <div class="input-group">
+            <input type="text" ng-model="message" class="form-control" placeholder="Type a message...">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-fab btn-fab-mini">
+                <i class="material-icons">send</i>
+              </button>
+            </span>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+  <div class="col-xs-12 col-md-6 right-chat" ng-controller="RightCtrl">
+    <div class="right-menu text-center">
+      <div class="other-name">
+        <b>Laura</b>
+      </div>
+    </div>
+    <ul class='messages'>
+      <li ng-class="{ 'sent' : m.from == name, 'received' : m.from != name }" ng-repeat='m in messages'>
+        &nbsp;
+        <b>{{ m.from }} </b>:
+        &nbsp;
+        {{ m.message }}
+      </li>
+    </ul>
+    <div class="bottom-bar">
+      <form ng-submit="sendMessageRight()">
+        <div class="form-group label-floating">
+          <div class="input-group">
+            <input type="text" ng-model="message" class="form-control" placeholder="Type a message...">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-fab btn-fab-mini">
+                <i class="material-icons">send</i>
+              </button>
+            </span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- <div class="row">
 
 		<div class="col-md-6">
 			<div ng-controller="LeftCtrl">
-				<div class='well chatbox' id='chat_history'>
+				<div class='chatbox' id='chat_history'>
 					<ul class='list-unstyled'>
 						<li ng-class="{ 'sent' : m.from == name, 'received' : m.from != name }" ng-repeat='m in messages'>
 							<i class='fa fa-comment'></i>
@@ -41,7 +100,7 @@
 		<div class="col-md-6">
 			<div ng-controller="RightCtrl">
 
-				<div class='well chatbox' id='chat_history'>
+				<div class='chatbox' id='chat_history'>
 					<ul class='list-unstyled'>
 						<li ng-class="{ 'sent' : m.from == name, 'received' : m.from != name }" ng-repeat='m in messages'>
 							<i class='fa fa-comment'></i>
@@ -65,4 +124,4 @@
 			</div>
 		</div>
 
-	</div>
+	</div> -->

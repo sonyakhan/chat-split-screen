@@ -8,10 +8,16 @@
     <link rel="stylesheet" href="included/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="included/font-awesome/css/font-awesome.css" />
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="included/bootstrap-material-design/dist/css/bootstrap-material-design.min.css" />
+    <link rel="stylesheet" href="included/bootstrap-material-design/dist/css/ripples.min.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
   </head>
   <body ng-app="app">
     <div class="header">
-      <div class="navbar navbar-default" role="navigation">
+
+
+      <!-- <div class="navbar navbar-default" role="navigation">
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
@@ -25,30 +31,36 @@
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
           </div>
         </div>
-      </div>
+      </div> -->
+
     </div>
     <div class="container">
       <div ng-view></div>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>
-
-
-
     <script src="included/jquery/dist/jquery.js"></script>
     <script src="included/angular/angular.js"></script>
     <script src="included/bootstrap/dist/js/bootstrap.js"></script>
+
+    <script src="included/arrive/minified/arrive.min.js"></script>
+    <script src="included/bootstrap-material-design/dist/js/material.min.js"></script>
+    <script src="included/bootstrap-material-design/dist/js/ripples.min.js"></script>
+
     <script src="included/ng-lodash/build/ng-lodash.min.js"></script>
     <script src="included/angular-cookies/angular-cookies.js"></script>
     <script src="included/angular-route/angular-route.js"></script>
     <script src="included/angular-sanitize/angular-sanitize.js"></script>
     <script src="included/ngstorage/ngStorage.min.js"></script>
-
-
-
     <script src="app.js"></script>
     <script src="js/controllers/RightCtrl.js"></script>
     <script src="js/controllers/LeftCtrl.js"></script>
     <script src="js/services/SocketService.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        $.material.init();
+    });
+    </script>
   </body>
 </html>

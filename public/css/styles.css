@@ -1,11 +1,124 @@
-/*body {
-  margin-top: 400px;
-}*/
+/*  general styles  */
+
+.container {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.row {
+  margin: 0;
+}
+
+.col-md-6, .col-xs-12 {
+  padding: 0;
+}
+
+.other-name {
+  font-size: 18px;
+}
+
+/*  chat bubbles  */
 
 .sent {
-  color: blue !important;
+  color: #009688;
+  display: block;
+  clear: both;
+  background-color: #fff;
+  width: 46%!important;
+  float: right!important;
+  border-radius: 4px!important;
+  padding: 20px!important;
+  margin: 10px 15px 10px 10px;
+  position: relative!important;
+  -webkit-box-shadow: 0 1px 6px rgba(0,0,0,.175)!important;
+  box-shadow: 0 1px 6px rgba(0,0,0,.175)!important;
 }
 
 .received {
-  color: gray !important;
+  color: gray;
+}
+
+.sent-bubble {
+  /*display: block;
+  clear: both;
+  background-color: #fff;
+  width: 46%!important;
+  float: right!important;
+  border-radius: 4px!important;
+  padding: 20px!important;
+  margin: 10px 15px 10px 10px;
+  position: relative!important;
+  -webkit-box-shadow: 0 1px 6px rgba(0,0,0,.175)!important;
+  box-shadow: 0 1px 6px rgba(0,0,0,.175)!important;*/
+}
+
+li > .sent:after {
+    position: absolute!important;
+    top: 27px!important;
+    right: -13px!important;
+    display: inline-block!important;
+    border-top: 14px solid transparent!important;
+    border-left: 14px solid #fff!important;
+    border-right: 0 solid #fff!important;
+    border-bottom: 14px solid transparent!important;
+    content: " "!important;
+    margin-right: 5px;
+}
+
+/*  left chat items  */
+
+
+.left-chat {
+  background-color: #edeff2;
+  height: 100vh;
+}
+
+.left-menu {
+  background-color: white;
+  width: 100%;
+  padding: 20px 0 15px;
+  box-shadow: 20px 2px 30px rgba(0, 0, 0, 0.1);
+}
+
+
+/*  right chat items  */
+
+.right-chat {
+  background-color: #edeff2;
+  height: 100vh;
+}
+
+.right-menu {
+  background-color: white;
+  width: 100%;
+  padding: 20px 0 15px;
+  box-shadow: 20px 2px 30px rgba(0, 0, 0, 0.1);
+}
+
+/*  chat box  */
+
+.messages {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  overflow: scroll;
+  height: 90vh;
+}
+
+ul {
+  padding: 0;
+}
+
+.bottom-bar {
+  position: relative;
+  width: 100%;
+  background-color: white;
+  padding: 20px 20px;
+  position: absolute;
+  bottom: 0;
+}
+
+.btn:focus,.btn:active {
+   outline: none !important;
 }
