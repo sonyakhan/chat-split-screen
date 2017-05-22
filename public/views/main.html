@@ -12,13 +12,10 @@
 <div class="row">
 
 		<div class="col-md-6">
-			<div ng-controller="LeftCtrl as left">
-				{{ left.tagline }}
-				{{ left.hi }}
-
+			<div ng-controller="LeftCtrl">
 				<div class='well chatbox' id='chat_history'>
 					<ul class='list-unstyled'>
-						<li ng-repeat='m in messages'>
+						<li ng-class="{ 'sent' : m.from == name, 'received' : m.from != name }" ng-repeat='m in messages'>
 							<i class='fa fa-comment'></i>
 							&nbsp;
 							<b>{{ m.from }} </b>:
@@ -28,13 +25,11 @@
 					</ul>
 				</div>
 				<br>
-				<form ng-submit='sendMessage()'>
+				<form ng-submit='sendMessageLeft()'>
 			      <div class='input-group'>
 			        <input class='input-sm form-control' ng-model='message' type='text' placeholder="Type a message...">
 			        <span class='input-group-btn'>
-			          <input class='input-sm btn btn-default'
-			          type='submit'
-			          value='Send'>
+			          <input class='input-sm btn btn-default' type='submit' value='Send'>
 			        </span>
 			      </div>
 			    </form>
@@ -44,29 +39,25 @@
 
 
 		<div class="col-md-6">
-			<div ng-controller="LeftCtrl as right">
-				{{ right.tagline }}
-				{{ right.hi }}
+			<div ng-controller="RightCtrl">
 
 				<div class='well chatbox' id='chat_history'>
 					<ul class='list-unstyled'>
-						<li ng-repeat='m in messages'>
+						<li ng-class="{ 'sent' : m.from == name, 'received' : m.from != name }" ng-repeat='m in messages'>
 							<i class='fa fa-comment'></i>
 							&nbsp;
-							<b>{{m.from}} </b>:
+							<b>{{ m.from }} </b>:
 							&nbsp;
-							{{m.message}}
+							{{ m.message }}
 						</li>
 					</ul>
 				</div>
 				<br>
-				<form ng-submit='sendMessage()'>
+				<form ng-submit='sendMessageRight()'>
 			      <div class='input-group'>
 			        <input class='input-sm form-control' ng-model='message' type='text' placeholder="Type a message...">
 			        <span class='input-group-btn'>
-			          <input class='input-sm btn btn-default'
-			          type='submit'
-			          value='Send'>
+			          <input class='input-sm btn btn-default' type='submit' value='Send'>
 			        </span>
 			      </div>
 			    </form>

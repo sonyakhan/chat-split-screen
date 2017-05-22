@@ -1,3 +1,11 @@
 /*body {
   margin-top: 400px;
 }*/
+
+.sent {
+  color: blue !important;
+}
+
+.received {
+  color: gray !important;
+}

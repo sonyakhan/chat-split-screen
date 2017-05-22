@@ -12,12 +12,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 io.on('connection', function(socket){
   console.log('a user connected');
 
-    socket.on('get-users', function() {
-        socket.emit('all-users', users);
-    });
-
     socket.on('disconnect', function() {
       console.log('user disconnected');
+    });
+
+    // listen for messages from the client
+    socket.on('send-message-left', function(data) {
+      // send it back to client
+      io.emit('get-message-left', data);
+    });
+
+    socket.on('send-message-right', function(data) {
+      io.emit('get-message-right', data);
     });
 
 });
