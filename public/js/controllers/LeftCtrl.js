@@ -5,9 +5,9 @@
     .module('app')
     .controller('LeftCtrl', LeftCtrl);
 
-  LeftCtrl.$inject = ['$scope', '$localStorage', 'socket', 'lodash', 'scrollBottom'];
+  LeftCtrl.$inject = ['$scope', '$localStorage', '$timeout', 'socket', 'lodash'];
 
-  function LeftCtrl($scope, $localStorage, socket, lodash, scrollBottom) {
+  function LeftCtrl($scope, $localStorage, $timeout, socket, lodash) {
 
     // $scope = "view model"
     // var $scope = this;
@@ -31,11 +31,22 @@
     // recieve my own messages
     socket.on('get-message-left', function(data) {
       $scope.messages.push(data);
+
+      // makes sure messages scroll to bottom when overflow
+      $timeout(function() {
+      var scroller = document.getElementById("autoscrollLeft");
+      scroller.scrollTop = scroller.scrollHeight;
+    }, 0, false);
     });
 
     // recieve right side's messages
     socket.on('get-message-right', function(data) {
       $scope.messages.push(data);
+
+      $timeout(function() {
+      var scroller = document.getElementById("autoscrollLeft");
+      scroller.scrollTop = scroller.scrollHeight;
+    }, 0, false);
     });
 
   }

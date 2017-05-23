@@ -6,7 +6,7 @@
       </div>
     </div>
 
-    <ul class='messages' scroll-bottom="messages">
+    <ul id="autoscrollLeft" class='messages'>
       <li ng-class="{ 'sent' : m.from == name, 'received' : m.from != name }" ng-repeat='m in messages'>
 
         <div ng-class="{ 'sent-bubble' : m.from == name, 'received-bubble' : m.from != name }">
@@ -34,15 +34,18 @@
         </div>
       </form>
     </div>
-
   </div>
+
+
+
+
   <div class="col-xs-12 col-md-6 right-chat" ng-controller="RightCtrl">
     <div class="right-menu text-center">
       <div class="other-name">
         <b>Laura</b>
       </div>
     </div>
-    <ul class='messages'>
+    <ul id="autoscrollRight" class='messages'>
       <li ng-class="{ 'sent' : m.from == name, 'received' : m.from != name }" ng-repeat='m in messages'>
         <div ng-class="{ 'sent-bubble' : m.from == name, 'received-bubble' : m.from != name }">
           <b>{{ m.from }} </b>:
