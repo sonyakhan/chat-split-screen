@@ -21,10 +21,18 @@
 /*  chat bubbles  */
 
 .sent {
-  color: #009688;
+  color: white;
+
+}
+
+.received {
+  color: gray;
+}
+
+.sent-bubble {
   display: block;
   clear: both;
-  background-color: #fff;
+  background-color: #009688;
   width: 46%!important;
   float: right!important;
   border-radius: 4px!important;
@@ -35,39 +43,46 @@
   box-shadow: 0 1px 6px rgba(0,0,0,.175)!important;
 }
 
-.received {
-  color: gray;
+li > .sent-bubble:after {
+  position: absolute!important;
+  top: 27px!important;
+  right: -13px!important;
+  display: inline-block!important;
+  border-top: 14px solid transparent!important;
+  border-left: 14px solid #009688!important;
+  border-right: 0px solid #009688!important;
+  border-bottom: 14px solid transparent!important;
+  content: " "!important;
+  margin-right: 5px;
 }
 
-.sent-bubble {
-  /*display: block;
+
+.received-bubble:after {
+  position: absolute!important;
+  top: 27px!important;
+  left: -13px!important;
+  display: inline-block!important;
+  border-top: 14px solid transparent!important;
+  border-left: 0px solid #fff!important;
+  border-right: 14px solid #fff!important;
+  border-bottom: 14px solid transparent!important;
+  content: " "!important;
+  margin-left: 5px;
+}
+
+.received-bubble {
+  float: left !important;
+  display: block;
   clear: both;
   background-color: #fff;
   width: 46%!important;
-  float: right!important;
   border-radius: 4px!important;
   padding: 20px!important;
-  margin: 10px 15px 10px 10px;
+  margin: 10px 10px 10px 15px;
   position: relative!important;
   -webkit-box-shadow: 0 1px 6px rgba(0,0,0,.175)!important;
-  box-shadow: 0 1px 6px rgba(0,0,0,.175)!important;*/
+  box-shadow: 0 1px 6px rgba(0,0,0,.175)!important;
 }
-
-li > .sent:after {
-    position: absolute!important;
-    top: 27px!important;
-    right: -13px!important;
-    display: inline-block!important;
-    border-top: 14px solid transparent!important;
-    border-left: 14px solid #fff!important;
-    border-right: 0 solid #fff!important;
-    border-bottom: 14px solid transparent!important;
-    content: " "!important;
-    margin-right: 5px;
-}
-
-/*  left chat items  */
-
 
 .left-chat {
   background-color: #edeff2;
@@ -82,8 +97,6 @@ li > .sent:after {
 }
 
 
-/*  right chat items  */
-
 .right-chat {
   background-color: #edeff2;
   height: 100vh;
@@ -96,6 +109,7 @@ li > .sent:after {
   box-shadow: 20px 2px 30px rgba(0, 0, 0, 0.1);
 }
 
+
 /*  chat box  */
 
 .messages {
@@ -103,7 +117,10 @@ li > .sent:after {
   list-style: none;
   margin: 0;
   overflow: scroll;
-  height: 90vh;
+  height: calc(100vh - 170px);
+  width: 100%;
+  overflow-y: scroll;
+
 }
 
 ul {

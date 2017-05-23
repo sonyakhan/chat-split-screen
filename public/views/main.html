@@ -6,12 +6,14 @@
       </div>
     </div>
 
-    <ul class='messages'>
+    <ul class='messages' scroll-bottom="messages">
       <li ng-class="{ 'sent' : m.from == name, 'received' : m.from != name }" ng-repeat='m in messages'>
 
-        <b>{{ m.from }} </b>:
-        &nbsp;
-        {{ m.message }}
+        <div ng-class="{ 'sent-bubble' : m.from == name, 'received-bubble' : m.from != name }">
+          <b>{{ m.from }} </b>:
+          &nbsp;
+          {{ m.message }}
+        </div>
 
 
       </li>
@@ -42,10 +44,11 @@
     </div>
     <ul class='messages'>
       <li ng-class="{ 'sent' : m.from == name, 'received' : m.from != name }" ng-repeat='m in messages'>
-        &nbsp;
-        <b>{{ m.from }} </b>:
-        &nbsp;
-        {{ m.message }}
+        <div ng-class="{ 'sent-bubble' : m.from == name, 'received-bubble' : m.from != name }">
+          <b>{{ m.from }} </b>:
+          &nbsp;
+          {{ m.message }}
+        </div>
       </li>
     </ul>
     <div class="bottom-bar">

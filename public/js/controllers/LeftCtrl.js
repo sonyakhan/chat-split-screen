@@ -5,9 +5,9 @@
     .module('app')
     .controller('LeftCtrl', LeftCtrl);
 
-  LeftCtrl.$inject = ['$scope', '$localStorage', 'socket', 'lodash'];
+  LeftCtrl.$inject = ['$scope', '$localStorage', 'socket', 'lodash', 'scrollBottom'];
 
-  function LeftCtrl($scope, $localStorage, socket, lodash) {
+  function LeftCtrl($scope, $localStorage, socket, lodash, scrollBottom) {
 
     // $scope = "view model"
     // var $scope = this;

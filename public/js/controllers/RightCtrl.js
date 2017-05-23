@@ -5,9 +5,9 @@
     .module('app')
     .controller('RightCtrl', RightCtrl);
 
-  RightCtrl.$inject = ['$location', '$scope', '$localStorage', 'socket'];
+  RightCtrl.$inject = ['$location', '$scope', '$localStorage', 'socket', 'scrollBottom'];
 
-  function RightCtrl($location, $scope, $localStorage, socket) {
+  function RightCtrl($location, $scope, $localStorage, socket, scrollBottom) {
 
     // $scope = "view model"
     // var $scope = this;
