@@ -5,9 +5,9 @@
     .module('app')
     .controller('LeftCtrl', LeftCtrl);
 
-  LeftCtrl.$inject = ['$scope', '$localStorage', '$timeout', 'socket', 'lodash'];
+  LeftCtrl.$inject = ['$scope', '$localStorage', '$timeout', 'socket', 'lodash', 'moment'];
 
-  function LeftCtrl($scope, $localStorage, $timeout, socket, lodash) {
+  function LeftCtrl($scope, $localStorage, $timeout, socket, lodash, moment) {
 
     // $scope = "view model"
     // var $scope = this;
@@ -15,7 +15,10 @@
     $scope.messages = [];
     // this can optionally be changed in the future
     $scope.name = 'Laura';
+    $scope.otherName = 'Rob';
     $scope.test = 'Left Ctlr works!!!';
+
+    $scope.time = new Date();
 
     //send messages
     $scope.sendMessageLeft =  function(data) {

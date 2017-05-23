@@ -33,7 +33,9 @@
   display: block;
   clear: both;
   background-color: #009688;
-  width: 46%!important;
+  /*min-width: 50%;*/
+  max-width: 70%;
+  word-wrap: break-word;
   float: right!important;
   border-radius: 4px!important;
   padding: 20px!important;
@@ -75,7 +77,9 @@ li > .sent-bubble:after {
   display: block;
   clear: both;
   background-color: #fff;
-  width: 46%!important;
+  /*min-width: 30%;*/
+  max-width: 70%;
+  word-wrap: break-word;
   border-radius: 4px!important;
   padding: 20px!important;
   margin: 10px 10px 10px 15px;

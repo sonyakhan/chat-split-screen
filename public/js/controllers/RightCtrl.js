@@ -5,9 +5,9 @@
     .module('app')
     .controller('RightCtrl', RightCtrl);
 
-  RightCtrl.$inject = ['$scope', '$localStorage', '$timeout', 'socket', 'lodash'];
+  RightCtrl.$inject = ['$scope', '$localStorage', '$timeout', 'socket', 'lodash', 'moment'];
 
-  function RightCtrl($scope, $localStorage, $timeout, socket, lodash) {
+  function RightCtrl($scope, $localStorage, $timeout, socket, lodash, moment) {
 
     // $scope = "view model"
     // var $scope = this;
@@ -15,6 +15,7 @@
     $scope.messages = [];
     // this can optionally be changed in the future
     $scope.name = 'Rob';
+    $scope.otherName = 'Laura';
     $scope.test = 'Right Ctlr works!!!';
 
     // send messages

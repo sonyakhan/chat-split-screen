@@ -2,7 +2,7 @@
   <div class="col-xs-12 col-md-6 left-chat" ng-controller="LeftCtrl">
     <div class="left-menu text-center">
       <div class="other-name">
-        <b>Rob</b>
+        <b>{{ otherName }}</b> {{time | amUtc | amLocal | amDateFormat:'H:mm a'}}
       </div>
     </div>
 
@@ -26,7 +26,7 @@
           <div class="input-group">
             <input type="text" ng-model="message" class="form-control" placeholder="Type a message...">
             <span class="input-group-btn">
-              <button type="button" class="btn btn-fab btn-fab-mini">
+              <button type="button" class="btn btn-fab btn-fab-mini" ng-click="sendMessageLeft()">
                 <i class="material-icons">send</i>
               </button>
             </span>
@@ -42,7 +42,7 @@
   <div class="col-xs-12 col-md-6 right-chat" ng-controller="RightCtrl">
     <div class="right-menu text-center">
       <div class="other-name">
-        <b>Laura</b>
+        <b>{{ otherName }}</b>
       </div>
     </div>
     <ul id="autoscrollRight" class='messages'>
@@ -60,7 +60,7 @@
           <div class="input-group">
             <input type="text" ng-model="message" class="form-control" placeholder="Type a message...">
             <span class="input-group-btn">
-              <button type="button" class="btn btn-fab btn-fab-mini">
+              <button type="button" class="btn btn-fab btn-fab-mini" ng-click="sendMessageRight()">
                 <i class="material-icons">send</i>
               </button>
             </span>
