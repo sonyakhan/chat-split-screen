@@ -18,6 +18,13 @@
   font-size: 18px;
 }
 
+.animate-show-hide {
+  transition: all linear 0.5s;
+}
+.animate-show-hide.ng-hide {
+  opacity: 0;
+}
+
 /*  chat bubbles  */
 
 .sent {
@@ -38,7 +45,7 @@
   word-wrap: break-word;
   float: right!important;
   border-radius: 4px!important;
-  padding: 20px!important;
+  padding: 15px!important;
   margin: 10px 15px 10px 10px;
   position: relative!important;
   -webkit-box-shadow: 0 1px 6px rgba(0,0,0,.175)!important;
@@ -58,6 +65,21 @@ li > .sent-bubble:after {
   margin-right: 5px;
 }
 
+.received-bubble {
+  float: left !important;
+  display: block;
+  clear: both;
+  background-color: #fff;
+  /*min-width: 30%;*/
+  max-width: 70%;
+  word-wrap: break-word;
+  border-radius: 4px!important;
+  padding: 15px!important;
+  margin: 10px 10px 10px 15px;
+  position: relative!important;
+  -webkit-box-shadow: 0 1px 6px rgba(0,0,0,.175)!important;
+  box-shadow: 0 1px 6px rgba(0,0,0,.175)!important;
+}
 
 .received-bubble:after {
   position: absolute!important;
@@ -70,22 +92,6 @@ li > .sent-bubble:after {
   border-bottom: 14px solid transparent!important;
   content: " "!important;
   margin-left: 5px;
-}
-
-.received-bubble {
-  float: left !important;
-  display: block;
-  clear: both;
-  background-color: #fff;
-  /*min-width: 30%;*/
-  max-width: 70%;
-  word-wrap: break-word;
-  border-radius: 4px!important;
-  padding: 20px!important;
-  margin: 10px 10px 10px 15px;
-  position: relative!important;
-  -webkit-box-shadow: 0 1px 6px rgba(0,0,0,.175)!important;
-  box-shadow: 0 1px 6px rgba(0,0,0,.175)!important;
 }
 
 .left-chat {

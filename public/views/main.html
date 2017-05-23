@@ -2,19 +2,29 @@
   <div class="col-xs-12 col-md-6 left-chat" ng-controller="LeftCtrl">
     <div class="left-menu text-center">
       <div class="other-name">
-        <b>{{ otherName }}</b> {{time | amUtc | amLocal | amDateFormat:'H:mm a'}}
+        <b>{{ otherName }}</b>
+        <small class="animate-show-hide" ng-show="isTyping">
+          is typing
+        </small>
       </div>
     </div>
+
+    <input ng-keyup="userIsTyping()" />
+
+    <h1>{{count}}</h1>
+
 
     <ul id="autoscrollLeft" class='messages'>
       <li ng-class="{ 'sent' : m.from == name, 'received' : m.from != name }" ng-repeat='m in messages'>
 
         <div ng-class="{ 'sent-bubble' : m.from == name, 'received-bubble' : m.from != name }">
+          <small>{{ m.timestamp | amUtc | amLocal | amDateFormat:'H:mm:ss a' }}</small>
+          <br>
           <b>{{ m.from }} </b>:
           &nbsp;
           {{ m.message }}
-        </div>
 
+        </div>
 
       </li>
     </ul>
@@ -48,6 +58,8 @@
     <ul id="autoscrollRight" class='messages'>
       <li ng-class="{ 'sent' : m.from == name, 'received' : m.from != name }" ng-repeat='m in messages'>
         <div ng-class="{ 'sent-bubble' : m.from == name, 'received-bubble' : m.from != name }">
+          <small>{{ m.timestamp | amUtc | amLocal | amDateFormat:'H:mm:ss a' }}</small>
+          <br>
           <b>{{ m.from }} </b>:
           &nbsp;
           {{ m.message }}

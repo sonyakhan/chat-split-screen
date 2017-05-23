@@ -16,6 +16,9 @@ io.on('connection', function(socket){
       console.log('user disconnected');
     });
 
+    // listen for users typing
+    // socket.on('other-user-typing', function())
+
     // listen for messages from the client
     socket.on('send-message-left', function(data) {
       // send it back to client

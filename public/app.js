@@ -9,6 +9,7 @@ angular
     'ngSanitize',
     'ngStorage',
     'ngLodash',
+    'ngAnimate',
     'angularMoment'
   ])
   .config(function ($routeProvider, $locationProvider) {

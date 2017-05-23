@@ -16,15 +16,26 @@
     // this can optionally be changed in the future
     $scope.name = 'Laura';
     $scope.otherName = 'Rob';
-    $scope.test = 'Left Ctlr works!!!';
+    $scope.time = {};
 
-    $scope.time = new Date();
+    $scope.isTyping = false;
 
-    //send messages
+    // check if user is typing
+
+    $scope.count = 0;
+
+    $scope.userIsTyping = function() {
+      var isT = $scope.isTyping;
+      socket.emit('other-user-typing', isT);
+    }
+
+    // send messages
     $scope.sendMessageLeft =  function(data) {
+      $scope.time = new Date();
       var newMessage = {
         message: $scope.message,
-        from: $scope.name
+        from: $scope.name,
+        timestamp: $scope.time
       };
       socket.emit('send-message-left', newMessage);
       // reset the message

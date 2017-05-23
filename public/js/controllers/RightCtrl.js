@@ -16,13 +16,15 @@
     // this can optionally be changed in the future
     $scope.name = 'Rob';
     $scope.otherName = 'Laura';
-    $scope.test = 'Right Ctlr works!!!';
+    $scope.time = {};
 
     // send messages
     $scope.sendMessageRight = function(data) {
+      $scope.time = new Date();
       var newMessage = {
         message: $scope.message,
-        from: $scope.name
+        from: $scope.name,
+        timestamp: $scope.time
       };
       socket.emit('send-message-right', newMessage);
       // reset the message
