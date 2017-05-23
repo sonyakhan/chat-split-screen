@@ -94,30 +94,18 @@ li > .sent-bubble:after {
   margin-left: 5px;
 }
 
-.left-chat {
+.left-chat, .right-chat {
   background-color: #edeff2;
   height: 100vh;
 }
 
-.left-menu {
+.left-menu, .right-menu {
   background-color: white;
   width: 100%;
   padding: 20px 0 15px;
   box-shadow: 20px 2px 30px rgba(0, 0, 0, 0.1);
 }
 
-
-.right-chat {
-  background-color: #edeff2;
-  height: 100vh;
-}
-
-.right-menu {
-  background-color: white;
-  width: 100%;
-  padding: 20px 0 15px;
-  box-shadow: 20px 2px 30px rgba(0, 0, 0, 0.1);
-}
 
 
 /*  chat box  */

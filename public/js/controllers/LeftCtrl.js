@@ -9,6 +9,19 @@
 
   function LeftCtrl($scope, $localStorage, $timeout, socket, lodash, moment) {
 
+    // TODO: use 'this' and vm
+    // TODO: change function expressions $scope.x = function(){} to function getX() {}
+
+
+
+    // $scope.searchTerm;
+    //
+    // $scope.checkTyping = function() {
+    //   $scope.isTyping = false;
+    // };
+
+
+
     // $scope = "view model"
     // var $scope = this;
     $scope.message = '';
@@ -18,16 +31,48 @@
     $scope.otherName = 'Rob';
     $scope.time = {};
 
+
+
+
+    // $scope.blank = '';
+    // $scope.isTyping = false;
+    // var inputChangedPromise;
+    //
+    // // check if user is typing
+    //
+    // $scope.inputChanged = function() {
+    //   if (inputChangedPromise) {
+    //     $timeout.cancel(inputChangedPromise);
+    //   }
+    //   inputChangedPromise = $timeout($scope.checkTyping, 500);
+    // };
+    //
+    // $scope.checkTyping = function() {
+    //   $scope.isTyping = false;
+    // };
+
+
+
+
     $scope.isTyping = false;
+    var inputChangedPromise;
 
     // check if user is typing
 
-    $scope.count = 0;
+    $scope.inputChanged = function() {
+      if (inputChangedPromise) {
+        $timeout.cancel(inputChangedPromise);
+      }
+      inputChangedPromise = $timeout($scope.checkTyping, 1500);
+    };
 
-    $scope.userIsTyping = function() {
-      var isT = $scope.isTyping;
-      socket.emit('other-user-typing', isT);
-    }
+    $scope.checkTyping = function() {
+      $scope.isTyping = false;
+    };
+
+
+
+
 
     // send messages
     $scope.sendMessageLeft =  function(data) {

@@ -17,7 +17,9 @@ io.on('connection', function(socket){
     });
 
     // listen for users typing
-    // socket.on('other-user-typing', function())
+    // socket.on('other-user-typing', function(data) {
+    //   io.emit('update-typing-status', data);
+    // });
 
     // listen for messages from the client
     socket.on('send-message-left', function(data) {
