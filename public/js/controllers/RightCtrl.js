@@ -34,7 +34,7 @@
       typing = $scope.currUserIsTyping;
       socket.emit('right-user-typing', typing);
 
-      inputChangedPromise = $timeout($scope.checkTyping, 1000);
+      inputChangedPromise = $timeout($scope.checkTyping, 500);
     };
 
     $scope.checkTyping = function() {
@@ -67,20 +67,26 @@
 
 
     // send messages
-    $scope.sendMessageRight = function(data) {
-      $scope.time = new Date();
-      var newMessage = {
-        message: $scope.message,
-        from: $scope.name,
-        timestamp: $scope.time
+    $scope.sendMessageRight = function() {
+      // error handling - don't send empty messages
+      if ($scope.message.length != 0) {
+        $scope.time = new Date();
+        var newMessage = {
+          message: $scope.message,
+          from: $scope.name,
+          timestamp: $scope.time
+        };
+        socket.emit('send-message-right', newMessage);
+        // reset the message
+        $scope.message = '';
       };
-      socket.emit('send-message-right', newMessage);
-      // reset the message
-      $scope.message = '';
-    };
+      }
 
     // recieve my own messages
     socket.on('get-message-right', function(data) {
+      // if (data.messages.length != 0) {
+      //   $scope.messages.push(data);
+      // }
       $scope.messages.push(data);
 
       // makes sure messages scroll to bottom when overflow
@@ -92,6 +98,9 @@
 
     // recieve left side's messages
     socket.on('get-message-left', function(data) {
+      // if (data.messages.length != 0) {
+      //   $scope.messages.push(data);
+      // }
       $scope.messages.push(data);
 
       $timeout(function() {

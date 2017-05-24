@@ -13,15 +13,6 @@
     // TODO: change function expressions $scope.x = function(){} to function getX() {}
 
 
-
-    // $scope.searchTerm;
-    //
-    // $scope.checkTyping = function() {
-    //   $scope.currUserIsTyping = false;
-    // };
-
-
-
     // $scope = "view model"
     // var $scope = this;
     $scope.message = '';
@@ -30,27 +21,6 @@
     $scope.name = 'Laura';
     $scope.otherName = 'Rob';
     $scope.time = {};
-
-
-
-
-    // $scope.blank = '';
-    // $scope.currUserIsTyping = false;
-    // var inputChangedPromise;
-    //
-    // // check if user is typing
-    //
-    // $scope.inputChanged = function() {
-    //   if (inputChangedPromise) {
-    //     $timeout.cancel(inputChangedPromise);
-    //   }
-    //   inputChangedPromise = $timeout($scope.checkTyping, 500);
-    // };
-    //
-    // $scope.checkTyping = function() {
-    //   $scope.currUserIsTyping = false;
-    // };
-
 
 
 
@@ -70,7 +40,7 @@
       typing = $scope.currUserIsTyping;
       socket.emit('left-user-typing', typing);
 
-      inputChangedPromise = $timeout($scope.checkTyping, 1000);
+      inputChangedPromise = $timeout($scope.checkTyping, 500);
     };
 
     $scope.checkTyping = function() {
@@ -94,40 +64,21 @@
 
 
 
-
-
-
-
-
-
     // send messages
-    $scope.sendMessageRight = function(data) {
-      $scope.time = new Date();
-      var newMessage = {
-        message: $scope.message,
-        from: $scope.name,
-        timestamp: $scope.time
+    $scope.sendMessageLeft =  function() {
+      // error handling - don't send empty messages
+      if ($scope.message.length != 0) {
+        $scope.time = new Date();
+        var newMessage = {
+          message: $scope.message,
+          from: $scope.name,
+          timestamp: $scope.time
+        };
+        socket.emit('send-message-left', newMessage);
+        // reset the message
+        $scope.message = '';
       };
-      socket.emit('send-message-right', newMessage);
-      // reset the message
-      $scope.message = '';
-    };
-
-
-
-
-    // send messages
-    $scope.sendMessageLeft =  function(data) {
-      $scope.time = new Date();
-      var newMessage = {
-        message: $scope.message,
-        from: $scope.name,
-        timestamp: $scope.time
-      };
-      socket.emit('send-message-left', newMessage);
-      // reset the message
-      $scope.message = '';
-    };
+      }
 
     // recieve my own messages
     socket.on('get-message-left', function(data) {
