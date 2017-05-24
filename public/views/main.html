@@ -48,7 +48,7 @@
         </small>
       </div>
     </div>
-    <ul id="autoscrollRight" class="messages">
+    <ul id="autoscrollRight" class="messages vertical-line">
       <li ng-class="{ 'sent' : m.from == name, 'received' : m.from != name }" ng-repeat='m in messages'>
         <div ng-class="{ 'sent-bubble' : m.from == name, 'received-bubble' : m.from != name }">
           <small>{{ m.timestamp | amUtc | amLocal | amDateFormat:'H:mm:ss a' }}</small>

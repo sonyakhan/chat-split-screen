@@ -111,6 +111,7 @@ li > .sent-bubble:after {
 /*  chat box  */
 
 .vertical-line {
+  border-left: thick solid #fff;
   border-right: thick solid #fff;
 }
 
