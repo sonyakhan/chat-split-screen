@@ -9,15 +9,11 @@
 
   function RightCtrl($scope, $localStorage, $timeout, socket, lodash, moment) {
 
-    // $scope = "view model"
-    // var $scope = this;
     $scope.message = '';
     $scope.messages = [];
-    // this can optionally be changed in the future
     $scope.name = 'Rob';
     $scope.otherName = 'Laura';
     $scope.time = {};
-
     $scope.currUserIsTyping = false;
     $scope.leftIsTyping;
     var inputChangedPromise;
@@ -53,19 +49,6 @@
       $scope.leftIsTyping = data;
     });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     // send messages
     $scope.sendMessageRight = function() {
       // error handling - don't send empty messages
@@ -80,13 +63,10 @@
         // reset the message
         $scope.message = '';
       };
-      }
+    }
 
     // recieve my own messages
     socket.on('get-message-right', function(data) {
-      // if (data.messages.length != 0) {
-      //   $scope.messages.push(data);
-      // }
       $scope.messages.push(data);
 
       // makes sure messages scroll to bottom when overflow
@@ -98,11 +78,7 @@
 
     // recieve left side's messages
     socket.on('get-message-left', function(data) {
-      // if (data.messages.length != 0) {
-      //   $scope.messages.push(data);
-      // }
       $scope.messages.push(data);
-
       $timeout(function() {
       var scroller = document.getElementById("autoscrollRight");
       scroller.scrollTop = scroller.scrollHeight;

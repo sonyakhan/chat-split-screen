@@ -4,8 +4,6 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
-var users = [];
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 // handle socket connections on backend

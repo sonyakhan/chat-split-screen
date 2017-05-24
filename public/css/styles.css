@@ -25,6 +25,10 @@
   opacity: 0;
 }
 
+.small, small {
+  font-size: 70%;
+}
+
 /*  chat bubbles  */
 
 .sent {
@@ -44,7 +48,7 @@
   word-wrap: break-word;
   float: right!important;
   border-radius: 4px!important;
-  padding: 15px!important;
+  padding: 10px!important;
   margin: 10px 15px 10px 10px;
   position: relative!important;
   -webkit-box-shadow: 0 1px 6px rgba(0,0,0,.175)!important;
@@ -72,7 +76,7 @@ li > .sent-bubble:after {
   max-width: 70%;
   word-wrap: break-word;
   border-radius: 4px!important;
-  padding: 15px!important;
+  padding: 10px!important;
   margin: 10px 10px 10px 15px;
   position: relative!important;
   -webkit-box-shadow: 0 1px 6px rgba(0,0,0,.175)!important;
@@ -106,12 +110,16 @@ li > .sent-bubble:after {
 
 /*  chat box  */
 
+.vertical-line {
+  border-right: thick solid #fff;
+}
+
 .messages {
   position: relative;
   list-style: none;
   margin: 0;
   overflow: scroll;
-  height: calc(100vh - 170px);
+  height: calc(100vh - 180px);
   width: 100%;
 }
 

@@ -1,20 +1,17 @@
 <div class="row">
+
+  <!-- left chat window -->
   <div class="col-xs-12 col-md-6 left-chat" ng-controller="LeftCtrl">
     <div class="left-menu text-center">
       <div class="other-name">
-        <!-- <b>{{ otherName }}</b>
-        <small class="animate-show-hide" ng-show="isTyping">
-          is typing
-        </small> -->
         <b>{{ otherName }}</b>
         <small class="animate-show-hide" ng-show="rightIsTyping">
           is typing
         </small>
       </div>
     </div>
-    <ul id="autoscrollLeft" class='messages'>
+    <ul id="autoscrollLeft" class="messages vertical-line">
       <li ng-class="{ 'sent' : m.from == name, 'received' : m.from != name }" ng-repeat='m in messages'>
-
         <div ng-class="{ 'sent-bubble' : m.from == name, 'received-bubble' : m.from != name }">
           <small>{{ m.timestamp | amUtc | amLocal | amDateFormat:'H:mm:ss a' }}</small>
           <br>
@@ -28,7 +25,6 @@
       <form ng-submit="sendMessageLeft()">
         <div class="form-group label-floating">
           <div class="input-group">
-            <!-- <input type="text" ng-model="message" ng-keyup="type = true" ng-change="inputChanged()" class="form-control" placeholder="Type a message..."> -->
             <input type="text" ng-model="message" ng-keyup="isTyping = true" ng-change="inputChanged()"
             class="form-control" placeholder="Type a message...">
             <span class="input-group-btn">
@@ -42,22 +38,7 @@
     </div>
   </div>
 
-  <!-- <input ng-model="isTyping" ng-change="checkTyping(isTyping)" ng-model-options="{debounce: 750}" /> -->
-  <!-- <input ng-model="isTyping" placeholder="type here" ng-change="inputChanged()" /> -->
-
-
-  <!-- <input type="text" ng-model="message" ng-keyup="type = true" ng-change="inputChanged()" class="form-control" placeholder="Type a message..."> -->
-
-  <!-- <small class="animate-show-hide" ng-show="type">
-    Shown if typing
-  </small> -->
-
-
-  <!-- <h1>{{isTyping}}</h1> -->
-
-
-
-
+  <!-- right chat window -->
   <div class="col-xs-12 col-md-6 right-chat" ng-controller="RightCtrl">
     <div class="right-menu text-center">
       <div class="other-name">
@@ -67,7 +48,7 @@
         </small>
       </div>
     </div>
-    <ul id="autoscrollRight" class='messages'>
+    <ul id="autoscrollRight" class="messages">
       <li ng-class="{ 'sent' : m.from == name, 'received' : m.from != name }" ng-repeat='m in messages'>
         <div ng-class="{ 'sent-bubble' : m.from == name, 'received-bubble' : m.from != name }">
           <small>{{ m.timestamp | amUtc | amLocal | amDateFormat:'H:mm:ss a' }}</small>
@@ -82,9 +63,8 @@
       <form ng-submit="sendMessageRight()">
         <div class="form-group label-floating">
           <div class="input-group">
-            <input type="text" ng-model="message" ng-keyup="isTyping = true" ng-change="inputChanged()" class="form-control" placeholder="Type a message...">
-
-            <!-- <input type="text" ng-model="message" class="form-control" placeholder="Type a message..."> -->
+            <input type="text" ng-model="message" ng-keyup="isTyping = true" ng-change="inputChanged()"
+             class="form-control" placeholder="Type a message...">
             <span class="input-group-btn">
               <button type="button" class="btn btn-fab btn-fab-mini" ng-click="sendMessageRight()">
                 <i class="material-icons">send</i>
@@ -95,65 +75,5 @@
       </form>
     </div>
   </div>
+
 </div>
-
-
-
-
-<!-- <div class="row">
-
-		<div class="col-md-6">
-			<div ng-controller="LeftCtrl">
-				<div class='chatbox' id='chat_history'>
-					<ul class='list-unstyled'>
-						<li ng-class="{ 'sent' : m.from == name, 'received' : m.from != name }" ng-repeat='m in messages'>
-							<i class='fa fa-comment'></i>
-							&nbsp;
-							<b>{{ m.from }} </b>:
-							&nbsp;
-							{{ m.message }}
-						</li>
-					</ul>
-				</div>
-				<br>
-				<form ng-submit='sendMessageLeft()'>
-			      <div class='input-group'>
-			        <input class='input-sm form-control' ng-model='message' type='text' placeholder="Type a message...">
-			        <span class='input-group-btn'>
-			          <input class='input-sm btn btn-default' type='submit' value='Send'>
-			        </span>
-			      </div>
-			    </form>
-
-			</div>
-		</div>
-
-
-		<div class="col-md-6">
-			<div ng-controller="RightCtrl">
-
-				<div class='chatbox' id='chat_history'>
-					<ul class='list-unstyled'>
-						<li ng-class="{ 'sent' : m.from == name, 'received' : m.from != name }" ng-repeat='m in messages'>
-							<i class='fa fa-comment'></i>
-							&nbsp;
-							<b>{{ m.from }} </b>:
-							&nbsp;
-							{{ m.message }}
-						</li>
-					</ul>
-				</div>
-				<br>
-				<form ng-submit='sendMessageRight()'>
-			      <div class='input-group'>
-			        <input class='input-sm form-control' ng-model='message' type='text' placeholder="Type a message...">
-			        <span class='input-group-btn'>
-			          <input class='input-sm btn btn-default' type='submit' value='Send'>
-			        </span>
-			      </div>
-			    </form>
-
-			</div>
-		</div>
-
-	</div> -->

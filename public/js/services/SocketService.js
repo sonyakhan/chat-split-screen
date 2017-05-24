@@ -16,7 +16,7 @@
       };
 
       return socketObj;
-      
+
       function on(eventName, callback) {
         socket.on(eventName, function() {
           var args = arguments;

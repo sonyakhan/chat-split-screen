@@ -9,21 +9,11 @@
 
   function LeftCtrl($scope, $localStorage, $timeout, socket, lodash, moment) {
 
-    // TODO: use 'this' and vm
-    // TODO: change function expressions $scope.x = function(){} to function getX() {}
-
-
-    // $scope = "view model"
-    // var $scope = this;
     $scope.message = '';
     $scope.messages = [];
-    // this can optionally be changed in the future
     $scope.name = 'Laura';
     $scope.otherName = 'Rob';
     $scope.time = {};
-
-
-
     $scope.currUserIsTyping = false;
     $scope.rightIsTyping;
     var inputChangedPromise;
@@ -59,11 +49,6 @@
       $scope.rightIsTyping = data;
     });
 
-
-
-
-
-
     // send messages
     $scope.sendMessageLeft =  function() {
       // error handling - don't send empty messages
@@ -78,7 +63,7 @@
         // reset the message
         $scope.message = '';
       };
-      }
+    }
 
     // recieve my own messages
     socket.on('get-message-left', function(data) {
