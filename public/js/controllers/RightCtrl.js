@@ -18,6 +18,54 @@
     $scope.otherName = 'Laura';
     $scope.time = {};
 
+    $scope.currUserIsTyping = false;
+    $scope.leftIsTyping;
+    var inputChangedPromise;
+    var typing;
+
+    // check if user is typing and send to backend
+    $scope.inputChanged = function() {
+
+      if (inputChangedPromise) {
+        $timeout.cancel(inputChangedPromise);
+      }
+      // emit signal user is typing
+      $scope.currUserIsTyping = true;
+      typing = $scope.currUserIsTyping;
+      socket.emit('right-user-typing', typing);
+
+      inputChangedPromise = $timeout($scope.checkTyping, 1000);
+    };
+
+    $scope.checkTyping = function() {
+      $scope.currUserIsTyping = false;
+      typing = $scope.currUserIsTyping;
+      // emit signal that user stopped typing
+      socket.emit('right-user-stopped-typing', typing);
+    };
+
+    // listen for the other user typing and stop typing
+    socket.on('get-left-user-typing', function(data) {
+      $scope.leftIsTyping = data;
+    });
+
+    socket.on('get-left-user-stopped-typing', function(data) {
+      $scope.leftIsTyping = data;
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // send messages
     $scope.sendMessageRight = function(data) {
       $scope.time = new Date();

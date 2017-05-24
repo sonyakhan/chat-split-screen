@@ -17,7 +17,7 @@
     // $scope.searchTerm;
     //
     // $scope.checkTyping = function() {
-    //   $scope.isTyping = false;
+    //   $scope.currUserIsTyping = false;
     // };
 
 
@@ -35,7 +35,7 @@
 
 
     // $scope.blank = '';
-    // $scope.isTyping = false;
+    // $scope.currUserIsTyping = false;
     // var inputChangedPromise;
     //
     // // check if user is typing
@@ -48,28 +48,70 @@
     // };
     //
     // $scope.checkTyping = function() {
-    //   $scope.isTyping = false;
+    //   $scope.currUserIsTyping = false;
     // };
 
 
 
 
-    $scope.isTyping = false;
+    $scope.currUserIsTyping = false;
+    $scope.rightIsTyping;
     var inputChangedPromise;
+    var typing;
 
-    // check if user is typing
-
+    // check if user is typing and send to backend
     $scope.inputChanged = function() {
+
       if (inputChangedPromise) {
         $timeout.cancel(inputChangedPromise);
       }
-      inputChangedPromise = $timeout($scope.checkTyping, 1500);
+      // emit signal user is typing
+      $scope.currUserIsTyping = true;
+      typing = $scope.currUserIsTyping;
+      socket.emit('left-user-typing', typing);
+
+      inputChangedPromise = $timeout($scope.checkTyping, 1000);
     };
 
     $scope.checkTyping = function() {
-      $scope.isTyping = false;
+      $scope.currUserIsTyping = false;
+      typing = $scope.currUserIsTyping;
+      // emit signal that user stopped typing
+      socket.emit('left-user-stopped-typing', typing);
     };
 
+    // listen for the other user typing and stop typing
+    socket.on('get-right-user-typing', function(data) {
+      $scope.rightIsTyping = data;
+    });
+
+    socket.on('get-right-user-stopped-typing', function(data) {
+      $scope.rightIsTyping = data;
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+    // send messages
+    $scope.sendMessageRight = function(data) {
+      $scope.time = new Date();
+      var newMessage = {
+        message: $scope.message,
+        from: $scope.name,
+        timestamp: $scope.time
+      };
+      socket.emit('send-message-right', newMessage);
+      // reset the message
+      $scope.message = '';
+    };
 
 
 

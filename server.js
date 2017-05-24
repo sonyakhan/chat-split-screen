@@ -21,6 +21,24 @@ io.on('connection', function(socket){
     //   io.emit('update-typing-status', data);
     // });
 
+    // listen for left user typing
+    socket.on('left-user-typing', function(data) {
+      io.emit('get-left-user-typing', data);
+    });
+
+    socket.on('left-user-stopped-typing', function(data) {
+      io.emit('get-left-user-stopped-typing', data);
+    });
+
+    // listen for right user typing
+    socket.on('right-user-typing', function(data) {
+      io.emit('get-right-user-typing', data);
+    });
+
+    socket.on('right-user-stopped-typing', function(data) {
+      io.emit('get-right-user-stopped-typing', data);
+    });
+
     // listen for messages from the client
     socket.on('send-message-left', function(data) {
       // send it back to client
