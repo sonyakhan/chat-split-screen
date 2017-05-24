@@ -16,11 +16,6 @@ io.on('connection', function(socket){
       console.log('user disconnected');
     });
 
-    // listen for users typing
-    // socket.on('other-user-typing', function(data) {
-    //   io.emit('update-typing-status', data);
-    // });
-
     // listen for left user typing
     socket.on('left-user-typing', function(data) {
       io.emit('get-left-user-typing', data);
