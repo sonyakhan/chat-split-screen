@@ -140,3 +140,12 @@ ul {
 .btn:focus,.btn:active {
    outline: none !important;
 }
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* make scrollbar invisible */
+}
