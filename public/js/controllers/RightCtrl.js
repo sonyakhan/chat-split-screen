@@ -11,8 +11,8 @@
 
     $scope.message = '';
     $scope.messages = [];
-    $scope.name = 'Laura';
-    $scope.otherName = 'Rob';
+    $scope.name = 'Rob';
+    $scope.otherName = 'Laura';
     $scope.time = {};
     $scope.currUserIsTyping = false;
     $scope.leftIsTyping;
