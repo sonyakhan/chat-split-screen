@@ -4,7 +4,7 @@
   <div class="col-xs-12 col-md-6 left-chat" ng-controller="LeftCtrl">
     <div class="left-menu text-center">
       <div class="other-name">
-        <b>{{ otherName }}</b>
+        <b>{{ name }}</b>
         <small class="animate-show-hide" ng-show="rightIsTyping">
           is typing
         </small>
@@ -42,7 +42,7 @@
   <div class="col-xs-12 col-md-6 right-chat" ng-controller="RightCtrl">
     <div class="right-menu text-center">
       <div class="other-name">
-        <b>{{ otherName }}</b>
+        <b>{{ name }}</b>
         <small class="animate-show-hide" ng-show="leftIsTyping">
           is typing
         </small>
